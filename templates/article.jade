@@ -1,0 +1,54 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width')
+    //css
+    link(href='../../assets/css/main.css', rel='stylesheet', type='text/css')
+    link(rel="icon" type="x-icon" href="../../assets/img/1500473951.ico")
+    
+    // seo
+    title= title + ' | London to Istanbul'
+    meta(name='og:title', content= title + '')
+    meta(name='twitter:title', content= title + '')
+    meta(name='description', content=  "description goes here")
+    meta(name='og:description', content=  "description goes here")
+    meta(name='twitter:description', content=  "description")
+    meta(name='twitter:card', content= '')
+    meta(name='article:modified_time', content= time)
+    meta(name='og:locale', content= 'en_EN')
+    meta(name='og:type', content= 'article')
+    meta(name='og:site_name', content= 'Site name goes here')
+    meta(name='og:image', content= cover_image)
+    meta(name='twitter:image', content= cover_image)    
+    
+    //google analytics script goes here
+    
+
+  body
+    //article content
+    h1= title
+    //p= moment(date).format('D MMMM, YYYY')
+    article
+      block content
+    
+    //article nav  
+    .article-nav 
+      .nav.previous
+        if next
+          a(href='/'+next.path) Previous article
+            span= next.title
+      .nav 
+        a(href="../../index.html") Home
+      .nav.next
+        if previous
+          a(href='/'+previous.path) Next article
+            span= previous.title
+            
+         
+        
+    script(src='https://code.jquery.com/jquery-3.1.0.min.js')
+    script(src='../../assets/js/main.js')  
+     
+      
+    

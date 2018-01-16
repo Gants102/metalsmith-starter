@@ -1,0 +1,68 @@
+global-reset()
+normalize-css()
+border-box-html()
+//@import '../../node_modules/jeet/styl'
+
+//site fonts
+
+@font-face
+  font-family: 'MaranaBlack';
+  src: url('../fonts/MaranaBlack.eot');
+  src: url('../fonts/MaranaBlack.woff2') format('woff2'),
+       url('../fonts/MaranaBlack.woff') format('woff'),
+       url('../fonts/MaranaBlack.ttf') format('truetype'),
+       url('../fonts/MaranaBlack.svg#MaranaBlack') format('svg'),
+       url('../fonts/MaranaBlack.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+
+@font-face
+  font-family: 'MaranaRegular';
+  src: url('../fonts/MaranaRegular.eot');
+  src: url('../fonts/MaranaRegular.woff2') format('woff2'),
+       url('../fonts/MaranaRegular.woff') format('woff'),
+       url('../fonts/MaranaRegular.ttf') format('truetype'),
+       url('../fonts/MaranaRegular.svg#MaranaRegular') format('svg'),
+       url('../fonts/MaranaRegular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+
+figure
+  margin: 0;
+
+//General typography importing sizing from axis
+
+h1, h2, h3, h4, h5, h6
+  upcase()
+  font-family: 'MaranaBlack'
+  text-align: center;
+  color: black
+h1
+  h1()
+h2
+  h2()
+h3
+  h3()
+h4
+  h4()
+h5
+  h5()
+h6
+  h6()
+
+table
+  table()
+
+p
+  font-family: $georgia
+  padding-bottom: 3%
+  line-height: 160%
+  color: $gray
+
+a
+  link(black)
+
+ol
+  ol()
+ul
+  ul()
