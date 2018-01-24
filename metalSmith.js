@@ -4,9 +4,6 @@ var highlighter = require('highlighter');
 var templates  = require('metalsmith-templates');
 var permalinks = require('metalsmith-permalinks');
 var collections = require('metalsmith-collections');
-var browserSync = require('metalsmith-browser-sync');
-var serve = require('metalsmith-serve');
-var watch = require('metalsmith-watch');
 var stylus = require('metalsmith-stylus');
 var autoprefixer = require('autoprefixer-stylus');
 var links = require("metalsmith-relative-links");
@@ -17,29 +14,11 @@ var define = require('metalsmith-define');
 var assets = require('metalsmith-assets');
 var tag = require('html-tag');
 var disqus = require('metalsmith-disqus');
-var browserSync = require('browser-sync');
-var argv = require('minimist')(process.argv);
 
-if (!argv.deploy) {
-    browserSync({
-        server: 'build',
-        files: ['src/*.md', 'templates/*.jade', 'assets/*.*'],
-        middleware: function (req, res, next) {
-            build(next);
-        }
-    })
-}
-
-else {
-    build(function () {
-        console.log('Done building.');
-    })
-}
-
-function build (callback) {
-metalsmith(__dirname)
+module.exports = function metalSmith(){
+return metalsmith(__dirname)
   .source('src')
-  .destination('build')
+
   .use(collections({
     articles: {
       pattern: 'articles/**/*.md',
@@ -82,12 +61,8 @@ metalsmith(__dirname)
 	use: [autoprefixer()],
   use: [axis()]
   }))
-
-
-  // Build everything!
-  .build(function (err) {
-    var message = err ? err : 'Build complete';
-    console.log(message);
-    callback();
-        });
-}
+  .destination('build')
+  .build(function(err,files){
+      if (err){ console.log(err); }
+    });
+};
